@@ -13,16 +13,48 @@
         </form>
     </div>
     @if (!empty($ads))
-        @foreach($ads as $ad) 
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <p>{{ $ad->location }}</p>
-            <p>{{ $ad->address }}</p>
-            <p>{{ $ad->rent }}</p>
-            <p>{{ $ad->{'no-of-beds'} }}</p>
-          </div>
-        </div>
-        @endforeach
+       <div class="row">
+           <div class="col-md-12">
+               <table class="table table-striped">
+                 <thead>
+                   <tr> 
+                       <th>#</th>
+                       <th>Location</th>
+                       <th>Adress</th>
+                       <th>Rent</th>
+                       <th>No Of Beds</th>
+                       <th>Action</th>
+                     </tr>
+                   <tbody>
+                   @foreach($ads as $ad)
+                     <tr>
+                       <td>
+                         {{$ad->id}}
+                       </td>
+                       <td>
+                         {{$ad->location}}
+                       </td>
+                       <td>
+                         {{$ad->address}}
+                       </td>
+                       <td>
+                         {{$ad->rent}}
+                       </td>
+                       <td>
+                         {{ $ad->{'no-of-beds'} }}
+                       </td>
+                       <td>
+                         <a href={{url('ad/view/'.$ad->id)}}>View</a>
+                       </td>
+                       <td>
+                       </td>
+                     </tr>
+                   @endforeach
+                   </tbody>
+                 </thead>
+               </table>
+           </div>
+       </div>  
     @endif
 </div>
 @endsection

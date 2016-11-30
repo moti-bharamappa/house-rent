@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ads;
 use App\AdPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Routing\redirectTo;
 
 class AdsController extends Controller
@@ -17,7 +18,8 @@ class AdsController extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
-        $ad = Ads::create($data);
+        $user = Auth::user();
+        $ad = $user->ads()->create($data);
         $file = $request->file('images');
         if ($file) {
             $name = time() . $file->getClientOriginalName();

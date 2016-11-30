@@ -16,6 +16,11 @@ class Ads extends Model
         return $this->hasMany('App\AdPhoto');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     public static function search($term, $start = 0, $end = 5)
     {
         $term = '%'.$term.'%';
@@ -40,4 +45,5 @@ class Ads extends Model
         ->orwhere('no-of-beds', 'like', $term)
         ->count();
     }
+
 }
