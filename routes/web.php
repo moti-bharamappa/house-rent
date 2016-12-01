@@ -32,6 +32,7 @@ Route::get('/ad/delete/{id}', 'AdsController@delete');
 
 // to fetch db data and generate the 'edit' view
 Route::get('/ad/update/{id}', 'AdsController@update');
+Route::get('/ad/view/{id}', 'AdsController@view');
 
 // Search
 Route::get('/search', 'SearchController@index');

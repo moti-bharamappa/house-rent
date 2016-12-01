@@ -21,21 +21,7 @@ class Ads extends Model
         return $this->belongsTo('App\User');
     }
 
-    public static function search($term, $start = 0, $end = 5)
-    {
-        $term = '%'.$term.'%';
-        return (array)DB::table('ads')
-        ->where('location', 'like', $term)
-        ->orwhere('rent', 'like', $term)
-        ->orwhere('address', 'like', $term)
-        ->orwhere('no-of-beds', 'like', $term)
-        ->skip($start)
-        ->take($end)
-        ->get()
-        ->toArray();
-    }
-
-    public static function count($term)
+    public static function search($term)
     {
         $term = '%'.$term.'%';
         return DB::table('ads')
@@ -43,7 +29,6 @@ class Ads extends Model
         ->orwhere('rent', 'like', $term)
         ->orwhere('address', 'like', $term)
         ->orwhere('no-of-beds', 'like', $term)
-        ->count();
+        ->paginate(2);
     }
-
 }

@@ -27,11 +27,8 @@ class SearchController extends Controller
             $page = 1;
         }
 
-        $results =[
-                'total' => Ads::count($search),
-                'data'  => Ads::search($search, (($page-1)*5))
-            ];
+        $results = Ads::search($search);
         // dd($results);
-        return view('ads.search-results', ['ads' => $results['data']]);
+        return view('ads.search-results', ['ads' => $results]);
     }
 }

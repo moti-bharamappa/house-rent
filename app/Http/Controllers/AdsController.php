@@ -56,4 +56,10 @@ class AdsController extends Controller
         }
         return redirect('/home');
     }
+
+    public function view($id)
+    {
+        $ad = Ads::where('id', $id)->get();
+        return view('ads.view', ['ad' => $ad]);
+    }
 }

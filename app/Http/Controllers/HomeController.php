@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function registered()
     {
         Auth::logout();
-        return view('registered');
+        return view('ads.verification');
     }
 
     public function dashboard()

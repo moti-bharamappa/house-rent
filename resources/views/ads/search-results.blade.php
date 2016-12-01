@@ -53,8 +53,11 @@
                    </tbody>
                  </thead>
                </table>
+               <div class="pagination">
+                   {{ $ads->links() }}
+                 </div>
            </div>
-       </div>  
+       </div>
     @endif
 </div>
 @endsection
