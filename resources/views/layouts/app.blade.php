@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!-- Scripts -->
     <script>
